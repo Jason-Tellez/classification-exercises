@@ -57,17 +57,10 @@ def new_iris_data():
     This function reads the iris data from the Codeup db into a df.
     '''
     sql_query = """
-                SELECT 
-                    species_id,
-                    species_name,
-                    sepal_length,
-                    sepal_width,
-                    petal_length,
-                    petal_width
+                SELECT *
                 FROM measurements
                 JOIN species USING(species_id)
                 """
-    
     # Read in DataFrame from Codeup db.
     df = pd.read_sql(sql_query, get_connection('iris_db'))
     
